@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="360" viewBox="0 0 520 360">
+  <rect width="520" height="360" fill="#FFC300"/>
+  <path d="M0 272 520 185v175H0z" fill="#F2B600"/>
+  <circle cx="263" cy="166" r="115" fill="#111"/>
+  <circle cx="263" cy="166" r="101" fill="#FFFDF7"/>
+  <circle cx="263" cy="166" r="79" fill="#E8E3D8"/>
+  <g fill="#E6A247" stroke="#111" stroke-width="5">
+    <circle cx="230" cy="135" r="27"/><circle cx="286" cy="127" r="27"/><circle cx="218" cy="190" r="27"/><circle cx="275" cy="184" r="27"/><circle cx="320" cy="175" r="27"/>
+  </g>
+  <path d="m183 227 24-45 38 24-25 43z" fill="#E63946" stroke="#111" stroke-width="5"/>
+  <text x="260" y="320" text-anchor="middle" fill="#111" font-family="Arial,sans-serif" font-size="17" font-weight="900" letter-spacing="2">REPLACE WITH MENU PHOTO</text>
+</svg>

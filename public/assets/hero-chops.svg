@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="660" viewBox="0 0 760 660">
+  <rect width="760" height="660" fill="#FFC300"/>
+  <path d="M0 525 760 355v305H0z" fill="#F2B600"/>
+  <circle cx="376" cy="336" r="248" fill="#111"/>
+  <circle cx="376" cy="336" r="224" fill="#FFFDF7"/>
+  <circle cx="376" cy="336" r="193" fill="#E8E3D8"/>
+  <g fill="#E6A247" stroke="#111" stroke-width="8">
+    <circle cx="276" cy="223" r="43"/><circle cx="362" cy="208" r="43"/><circle cx="448" cy="239" r="43"/>
+    <circle cx="230" cy="311" r="43"/><circle cx="322" cy="302" r="43"/><circle cx="414" cy="318" r="43"/><circle cx="500" cy="320" r="43"/>
+    <circle cx="275" cy="406" r="43"/><circle cx="365" cy="402" r="43"/><circle cx="455" cy="414" r="43"/>
+  </g>
+  <g fill="#F8C671">
+    <circle cx="262" cy="210" r="8"/><circle cx="350" cy="193" r="8"/><circle cx="434" cy="225" r="8"/>
+    <circle cx="216" cy="297" r="8"/><circle cx="307" cy="287" r="8"/><circle cx="399" cy="303" r="8"/><circle cx="486" cy="304" r="8"/>
+    <circle cx="260" cy="392" r="8"/><circle cx="351" cy="388" r="8"/><circle cx="440" cy="400" r="8"/>
+  </g>
+  <g stroke="#111" stroke-width="7" stroke-linejoin="round">
+    <path d="m215 455 37-77 60 36-39 76z" fill="#E63946"/>
+    <path d="m215 455 58 35-6-21-46-27z" fill="#FFC300"/>
+    <path d="m483 438 58-67 46 43-59 66z" fill="#E63946"/>
+    <path d="m483 438 45 42 1-23-33-30z" fill="#FFC300"/>
+    <path d="m332 484 58-88 62 44-58 87z" fill="#F1C36E"/>
+    <path d="m332 484 62 43-4-24-49-33z" fill="#E63946"/>
+  </g>
+  <g fill="#3D8A50" stroke="#111" stroke-width="6">
+    <path d="M170 226q-14-35 16-49 10 29-16 49z"/><path d="M532 276q5-34 40-34 0 32-40 34z"/>
+    <path d="M527 385q29-32 58-10-19 29-58 10z"/><path d="M196 368q-35-9-30-43 32 7 30 43z"/>
+  </g>
+  <g fill="#E63946"><circle cx="198" cy="248" r="11"/><circle cx="545" cy="224" r="10"/><circle cx="555" cy="349" r="9"/></g>
+  <text x="380" y="598" text-anchor="middle" fill="#111" font-family="Arial,sans-serif" font-size="22" font-weight="900" letter-spacing="4">A PLATTER MADE FOR SHARING</text>
+</svg>

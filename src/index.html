@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111111" />
+    <meta
+      name="description"
+      content="Freshly made small chops, finger foods and party snacks for birthdays, weddings and every celebration. Message Darcy Chops on WhatsApp to order today."
+    />
+    <title>Darcy Chops | Finger Foods You Can Trust</title>
+    <link rel="canonical" href="https://[DOMAIN]" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:title" content="Darcy Chops | Finger Foods You Can Trust" />
+    <meta
+      property="og:description"
+      content="Freshly made small chops, finger foods and party snacks for birthdays, weddings and every celebration. Message Darcy Chops on WhatsApp to order today."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://[DOMAIN]" />
+    <meta property="og:image" content="https://[DOMAIN]/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Darcy Chops small chops and finger foods" />
+    <meta property="og:site_name" content="Darcy Chops" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Darcy Chops | Finger Foods You Can Trust" />
+    <meta
+      name="twitter:description"
+      content="Freshly made small chops, finger foods and party snacks for birthdays, weddings and every celebration. Message Darcy Chops on WhatsApp to order today."
+    />
+    <meta name="twitter:image" content="https://[DOMAIN]/assets/social-card.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      href="https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8.woff2"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="image" href="/assets/preloader.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap"
+    />
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #111;
+        opacity: 1;
+        visibility: visible;
+        transition:
+          opacity 0.22s ease,
+          visibility 0.22s ease;
+      }
+      #preloader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #preloader .loader-inner {
+        display: grid;
+        justify-items: center;
+        gap: 26px;
+      }
+      #preloader img {
+        width: 190px;
+        height: auto;
+        animation: loader-bounce 0.72s ease-in-out infinite alternate;
+      }
+      #preloader .loader-track {
+        width: 170px;
+        height: 5px;
+        overflow: hidden;
+        background: #393939;
+      }
+      #preloader .loader-progress {
+        width: 40%;
+        height: 100%;
+        background: #e63946;
+        animation: loader-progress 1.15s ease-in-out forwards;
+      }
+      @keyframes loader-bounce {
+        to {
+          transform: translateY(-9px) scale(1.025);
+        }
+      }
+      @keyframes loader-progress {
+        to {
+          width: 94%;
+          background: #ffc300;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #preloader img {
+          animation: none;
+          transition: opacity 0.2s ease;
+        }
+        #preloader .loader-progress {
+          animation: none;
+          width: 75%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader" aria-hidden="true">
+      <div class="loader-inner">
+        <img src="/assets/preloader.png" width="190" height="52" alt="" />
+        <div class="loader-track"><div class="loader-progress"></div></div>
+      </div>
+    </div>
+    <app-root></app-root>
+    <script>
+      (() => {
+        const preloader = document.getElementById('preloader');
+        if (!preloader) return;
+        const startedAt = Date.now();
+        let dismissed = false;
+        const dismiss = () => {
+          if (dismissed) return;
+          dismissed = true;
+          window.setTimeout(
+            () => preloader.classList.add('is-hidden'),
+            Math.max(0, 1200 - (Date.now() - startedAt)),
+          );
+        };
+        window.addEventListener('load', dismiss, { once: true });
+        window.setTimeout(dismiss, 6000);
+      })();
+    </script>
+  </body>
+</html>

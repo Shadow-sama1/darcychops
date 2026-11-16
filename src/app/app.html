@@ -1,0 +1,492 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Darcy Chops home" (click)="goHome($event)">
+    @if (!logoFailed()) {
+      <img
+        src="/assets/logo.svg"
+        alt="Darcy Chops logo"
+        width="156"
+        height="42"
+        (error)="logoFailed.set(true)"
+      />
+    } @else {
+      <span class="brand-fallback">DARCY CHOPS</span>
+    }
+  </a>
+
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a
+      href="#about"
+      [class.active]="activeSection() === 'about'"
+      (click)="navigateTo($event, 'about')"
+      >About</a
+    >
+    <a href="#menu" [class.active]="activeSection() === 'menu'" (click)="navigateTo($event, 'menu')"
+      >Menu</a
+    >
+    <a
+      href="#how-it-works"
+      [class.active]="activeSection() === 'how-it-works'"
+      (click)="navigateTo($event, 'how-it-works')"
+      >How it works</a
+    >
+    <a href="#faq" [class.active]="activeSection() === 'faq'" (click)="navigateTo($event, 'faq')"
+      >FAQ</a
+    >
+    <a
+      href="#contact"
+      [class.active]="activeSection() === 'contact'"
+      (click)="navigateTo($event, 'contact')"
+      >Contact</a
+    >
+    <a
+      class="button button--red nav-cta"
+      [href]="openWhatsApp()"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Get my chops on WhatsApp"
+      >Get my chops <span aria-hidden="true">↗</span></a
+    >
+  </nav>
+
+  <button
+    id="menu-toggle"
+    class="menu-toggle"
+    type="button"
+    aria-controls="mobile-menu"
+    [attr.aria-expanded]="menuOpen()"
+    [attr.aria-label]="menuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+    [class.is-open]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    <span></span><span></span>
+  </button>
+</header>
+
+<div
+  class="mobile-menu"
+  id="mobile-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile navigation"
+  [hidden]="!menuOpen()"
+  (click)="onOverlayClick($event)"
+  (keydown)="onMenuKeydown($event)"
+>
+  <div class="mobile-menu__inner">
+    <button
+      id="mobile-menu-close"
+      class="mobile-menu__close"
+      type="button"
+      aria-label="Close navigation menu"
+      (click)="closeMenu()"
+    >
+      CLOSE <span aria-hidden="true">×</span>
+    </button>
+    <p class="eyebrow">DARCY CHOPS · GOOD FOOD, GOOD COMPANY</p>
+    <nav aria-label="Mobile navigation">
+      <a href="#about" (click)="navigateTo($event, 'about')">About <span>01</span></a>
+      <a href="#menu" (click)="navigateTo($event, 'menu')">Menu <span>02</span></a>
+      <a href="#how-it-works" (click)="navigateTo($event, 'how-it-works')"
+        >How it works <span>03</span></a
+      >
+      <a href="#faq" (click)="navigateTo($event, 'faq')">FAQ <span>04</span></a>
+      <a href="#contact" (click)="navigateTo($event, 'contact')">Contact <span>05</span></a>
+    </nav>
+    <a
+      class="button button--mustard mobile-menu__cta"
+      [href]="openWhatsApp()"
+      target="_blank"
+      rel="noopener noreferrer"
+      (click)="closeMenu()"
+      >Get my chops <span aria-hidden="true">↗</span></a
+    >
+  </div>
+</div>
+
+<main id="main-content">
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <p class="eyebrow hero__eyebrow"><span class="status-dot"></span> SMALL CHOPS. BIG JOY.</p>
+      <h1 id="hero-title">FINGER FOODS<br />YOU CAN <span>TRUST.</span></h1>
+      <p class="hero__description">
+        Freshly made small chops and party finger foods, delivered hot and on time.
+      </p>
+      <div class="hero__actions">
+        <a
+          class="button button--red button--large"
+          [href]="openWhatsApp()"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get my chops on WhatsApp"
+          >Get my chops <span aria-hidden="true">↗</span></a
+        >
+        <a
+          class="button button--outline-light button--large"
+          href="#menu"
+          (click)="navigateTo($event, 'menu')"
+          >See the menu <span aria-hidden="true">↓</span></a
+        >
+      </div>
+      <p class="hero__microcopy">Made for your people. Ordered in a few taps.</p>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__image-frame">
+        <img
+          ngSrc="/assets/hero-chops.svg"
+          width="760"
+          height="660"
+          priority
+          alt="A colourful platter of freshly made puff-puff, spring rolls, samosas and party snacks"
+        />
+      </div>
+      <div class="hero-sticker" aria-label="Order on WhatsApp">
+        <span>ORDER</span><strong>ON<br />WHATSAPP</strong><span aria-hidden="true">↗</span>
+      </div>
+      <span class="hero__scribble" aria-hidden="true">FRESH<br />EVERY TIME</span>
+    </div>
+    <div class="hero__bottomline">
+      <span>GOOD FOOD, NO GUESSWORK</span><span>SCROLL TO GET A TASTE ↓</span>
+    </div>
+  </section>
+
+  <div class="marquee marquee--red" aria-label="Freshly made, made for sharing, party-ready">
+    <div class="marquee__track">
+      <span
+        >FRESHLY MADE <i>✳</i> MADE FOR SHARING <i>✳</i> PARTY-READY <i>✳</i> FRESHLY MADE
+        <i>✳</i> MADE FOR SHARING <i>✳</i> PARTY-READY <i>✳</i></span
+      ><span aria-hidden="true"
+        >FRESHLY MADE <i>✳</i> MADE FOR SHARING <i>✳</i> PARTY-READY <i>✳</i> FRESHLY MADE
+        <i>✳</i> MADE FOR SHARING <i>✳</i> PARTY-READY <i>✳</i></span
+      >
+    </div>
+  </div>
+
+  <section class="about section-pad" id="about" aria-labelledby="about-title">
+    <div class="section-kicker"><span>01 / WHAT WE DO</span><span>REAL FOOD. REAL EASY.</span></div>
+    <div class="about__grid">
+      <h2 id="about-title">YOUR PARTY<br />SNACKS, <span>SORTED.</span></h2>
+      <div class="about__copy">
+        <p>
+          Darcy Chops makes fresh small chops, pastries and party platters for the moments worth
+          sharing. Pick your favourites, tell us when you need them, and we’ll confirm your order on
+          WhatsApp.
+        </p>
+        <a class="text-link" href="#how-it-works" (click)="navigateTo($event, 'how-it-works')"
+          >Here’s how it works <span aria-hidden="true">→</span></a
+        >
+      </div>
+    </div>
+    <div class="quick-facts">
+      <article>
+        <span class="fact-number">01</span>
+        <h3>Made fresh</h3>
+        <p>Prepared for your order, not left waiting on a shelf.</p>
+      </article>
+      <article>
+        <span class="fact-number">02</span>
+        <h3>Easy to order</h3>
+        <p>Choose your chops and chat with us directly.</p>
+      </article>
+      <article>
+        <span class="fact-number">03</span>
+        <h3>Made to share</h3>
+        <p>Small bites for big tables and happy gatherings.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="menu-section section-pad" id="menu" aria-labelledby="menu-title">
+    <div class="section-kicker"><span>02 / THE MENU</span><span>GOOD THINGS, BITE-SIZED</span></div>
+    <div class="section-heading-row">
+      <div>
+        <p class="eyebrow">PICK YOUR FAVOURITES</p>
+        <h2 id="menu-title">MEET THE <span>CHOPS.</span></h2>
+      </div>
+      <p class="section-intro">
+        Little bites. Big flavour. Build a box or ask us to put together a party platter.
+      </p>
+    </div>
+    <div class="menu-filters" role="group" aria-label="Filter menu by category">
+      @for (category of categories; track category) {
+        <button
+          type="button"
+          [class.selected]="activeCategory() === category"
+          [attr.aria-pressed]="activeCategory() === category"
+          (click)="activeCategory.set(category)"
+        >
+          {{ category }}
+        </button>
+      }
+    </div>
+    <div class="menu-grid">
+      @for (item of visibleMenuItems(); track item.name; let index = $index) {
+        <article class="menu-card" [style.--card-index]="index">
+          <div class="menu-card__image">
+            <img
+              src="/assets/menu/placeholder.svg"
+              width="520"
+              height="360"
+              loading="lazy"
+              [alt]="item.name + ' — image placeholder, replace with a Darcy Chops menu photo'"
+            />
+            <span class="menu-card__category">{{ item.category }}</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__title-row">
+              <h3>{{ item.name }}</h3>
+              <span aria-hidden="true">↗</span>
+            </div>
+            <p>{{ item.description }}</p>
+            <div class="menu-card__bottom">
+              <strong>{{ item.price }}</strong><a
+                [href]="openWhatsApp(orderMessage(item.name))"
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.aria-label]="'Get my chops: order ' + item.name + ' on WhatsApp'"
+                >Get my chops <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+    <p class="menu-note">
+      Prices and availability are confirmed on WhatsApp. Tell us your date, guest count and
+      favourites.
+    </p>
+  </section>
+
+  <div
+    class="marquee marquee--mustard"
+    aria-label="Darcy Chops for birthdays, weddings, office parties, naming ceremonies and Owambe"
+  >
+    <div class="marquee__track">
+      <span
+        >BIRTHDAYS <i>✳</i> WEDDINGS <i>✳</i> OFFICE PARTIES <i>✳</i> NAMING CEREMONIES
+        <i>✳</i> OWAMBE <i>✳</i> BIRTHDAYS <i>✳</i> WEDDINGS <i>✳</i> OFFICE PARTIES <i>✳</i> NAMING
+        CEREMONIES <i>✳</i> OWAMBE <i>✳</i></span
+      ><span aria-hidden="true"
+        >BIRTHDAYS <i>✳</i> WEDDINGS <i>✳</i> OFFICE PARTIES <i>✳</i> NAMING CEREMONIES
+        <i>✳</i> OWAMBE <i>✳</i> BIRTHDAYS <i>✳</i> WEDDINGS <i>✳</i> OFFICE PARTIES <i>✳</i> NAMING
+        CEREMONIES <i>✳</i> OWAMBE <i>✳</i></span
+      >
+    </div>
+  </div>
+
+  <section class="steps-section section-pad" id="how-it-works" aria-labelledby="steps-title">
+    <div class="section-kicker">
+      <span>03 / THREE EASY STEPS</span><span>FROM CRAVING TO CATERED</span>
+    </div>
+    <h2 id="steps-title">GOOD CHOPS.<br /><span>NO LONG STORY.</span></h2>
+    <div class="steps-grid">
+      <article>
+        <span class="step-number">01</span>
+        <div class="step-icon" aria-hidden="true">↗</div>
+        <h3>Pick your chops</h3>
+        <p>Choose a few favourites or ask us for a party mix.</p>
+      </article>
+      <article>
+        <span class="step-number">02</span>
+        <div class="step-icon" aria-hidden="true">✉</div>
+        <h3>Tap “Get my chops”</h3>
+        <p>Tell us what you need, how many and when.</p>
+      </article>
+      <article>
+        <span class="step-number">03</span>
+        <div class="step-icon" aria-hidden="true">✓</div>
+        <h3>We confirm &amp; deliver</h3>
+        <p>
+          We confirm the details with you on WhatsApp, then deliver your chops for the occasion.
+        </p>
+      </article>
+    </div>
+    <a
+      class="button button--black"
+      [href]="openWhatsApp()"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Start your order <span aria-hidden="true">↗</span></a
+    >
+  </section>
+
+  <section class="trust-section section-pad" id="why-us" aria-labelledby="trust-title">
+    <div class="trust__stamp" aria-hidden="true">
+      <span>GOOD FOOD<br />GOOD PEOPLE</span><b>✳</b>
+    </div>
+    <div class="trust__content">
+      <div class="section-kicker">
+        <span>04 / THE DARCY PROMISE</span><span>WHY TRUST DARCY CHOPS</span>
+      </div>
+      <h2 id="trust-title">MADE WITH CARE.<br /><span>SERVED WITH PRIDE.</span></h2>
+      <div class="trust-points">
+        <article>
+          <span>01</span>
+          <div>
+            <h3>Freshness comes first</h3>
+            <p>We make your order fresh, with flavour in every bite.</p>
+          </div>
+        </article>
+        <article>
+          <span>02</span>
+          <div>
+            <h3>Hygiene you can trust</h3>
+            <p>We handle every order with care, from preparation through packing.</p>
+          </div>
+        </article>
+        <article>
+          <span>03</span>
+          <div>
+            <h3>On-time delivery</h3>
+            <p>
+              We confirm your delivery timing up front and plan to be ready when your gathering
+              starts.
+            </p>
+          </div>
+        </article>
+        <article>
+          <span>04</span>
+          <div>
+            <h3>Honest pricing</h3>
+            <p>Know your confirmed total before we prepare your order.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section section-pad" id="testimonials" aria-labelledby="reviews-title">
+    <div class="section-kicker">
+      <span>05 / KIND WORDS</span><span>REAL PEOPLE, REAL GOOD TIMES</span>
+    </div>
+    <div class="section-heading-row">
+      <h2 id="reviews-title">THE WORD ON<br /><span>THE TABLE.</span></h2>
+      <p class="section-intro">
+        A good snack speaks for itself. Replace these examples with real customer reviews before
+        launch.
+      </p>
+    </div>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>
+          “The small chops disappeared before the party even started. Everyone asked where we
+          ordered from!”
+        </blockquote>
+        <p>REPLACE WITH A REAL CUSTOMER REVIEW</p>
+      </article>
+      <article class="review-card review-card--red">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>
+          “Fresh, tasty and so easy to arrange. Darcy Chops made hosting feel simple.”
+        </blockquote>
+        <p>REPLACE WITH A REAL CUSTOMER REVIEW</p>
+      </article>
+      <article class="review-card">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>
+          “The platter looked lovely and the guests were happy. We’ll be ordering again.”
+        </blockquote>
+        <p>REPLACE WITH A REAL CUSTOMER REVIEW</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section section-pad" id="faq" aria-labelledby="faq-title">
+    <div class="faq__intro">
+      <div class="section-kicker"><span>06 / GOOD TO KNOW</span></div>
+      <h2 id="faq-title">GOT<br />QUESTIONS?<br /><span>WE’RE HERE.</span></h2>
+      <p>Need a quick answer? Ask us directly on WhatsApp.</p>
+      <a class="text-link" [href]="openWhatsApp()" target="_blank" rel="noopener noreferrer"
+        >Chat with Darcy Chops <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <div class="faq-list">
+      @for (faq of faqs; track faq.question; let i = $index) {
+        <article class="faq-item">
+          <h3>
+            <button
+              type="button"
+              [attr.aria-expanded]="expandedFaq() === i"
+              [attr.aria-controls]="'faq-answer-' + i"
+              (click)="toggleFaq(i)"
+            >
+              <span class="faq-number">0{{ i + 1 }}</span
+              ><span>{{ faq.question }}</span
+              ><span class="faq-toggle" aria-hidden="true">{{
+                expandedFaq() === i ? '−' : '+'
+              }}</span>
+            </button>
+          </h3>
+          <p [id]="'faq-answer-' + i" [hidden]="expandedFaq() !== i">{{ faq.answer }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="contact-section section-pad" id="contact" aria-labelledby="contact-title">
+    <p class="eyebrow">YOUR NEXT GREAT GATHERING STARTS HERE</p>
+    <h2 id="contact-title">LET’S GET<br /><span>CHOPPING.</span></h2>
+    <p class="contact-section__copy">
+      Good snacks make good memories. Tell us what you’re celebrating.
+    </p>
+    <a
+      class="button button--mustard button--large"
+      [href]="openWhatsApp()"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Get my chops on WhatsApp"
+      >Get my chops <span aria-hidden="true">↗</span></a
+    >
+    <span class="contact-spark contact-spark--one" aria-hidden="true">✳</span
+    ><span class="contact-spark contact-spark--two" aria-hidden="true">✳</span>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer__top">
+    <a class="brand brand--footer" href="/" aria-label="Darcy Chops home" (click)="goHome($event)"
+      ><img src="/assets/logo-light.svg" alt="Darcy Chops logo" width="156" height="42" /><span
+        class="sr-only"
+        >Darcy Chops</span
+      ></a
+    >
+    <p>Finger foods you can trust.<br />Good food, shared with good people.</p>
+    <a class="footer__top-link" href="#home" (click)="goHome($event)">BACK TO TOP ↑</a>
+  </div>
+  <div class="footer__details">
+    <div>
+      <span class="footer-label">SAY HELLO</span
+      ><a [href]="openWhatsApp()" target="_blank" rel="noopener noreferrer"
+        >WhatsApp Darcy Chops ↗</a
+      ><a
+        [href]="'https://instagram.com/' + site.instagram.replace('@', '')"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Instagram · {{ site.instagram }}</a
+      >
+    </div>
+    <div>
+      <span class="footer-label">FIND US</span>
+      <p>{{ site.city }} <span class="placeholder-note">· update location before launch</span></p>
+    </div>
+    <div>
+      <span class="footer-label">WHEN WE’RE OPEN</span>
+      <p>{{ site.hours }}</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© {{ site.name }} {{ currentYear }} · Made for sharing.</span
+    ><span>Freshly made in {{ site.city }}</span>
+  </div>
+</footer>
+
+<a
+  class="sticky-cta"
+  [href]="openWhatsApp()"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Get my chops from Darcy Chops on WhatsApp"
+  >Get my chops <span aria-hidden="true">↗</span></a
+>

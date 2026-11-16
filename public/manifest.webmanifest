@@ -1,0 +1,12 @@
+{
+  "name": "Darcy Chops",
+  "short_name": "Darcy Chops",
+  "description": "Finger foods you can trust.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

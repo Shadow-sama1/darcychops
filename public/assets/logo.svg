@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="140" viewBox="0 0 520 140">
+  <rect x="4" y="12" width="116" height="116" fill="#E63946"/>
+  <path d="M25 92V45h16l21 26 20-26h16v47H81V70L62 94 43 70v22z" fill="#FFC300"/>
+  <text x="140" y="67" font-family="Arial,sans-serif" font-size="46" font-weight="900" letter-spacing="1" fill="#111">DARCY</text>
+  <text x="140" y="113" font-family="Arial,sans-serif" font-size="46" font-weight="900" letter-spacing="1" fill="#E63946">CHOPS</text>
+</svg>
